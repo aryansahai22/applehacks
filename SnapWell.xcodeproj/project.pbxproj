@@ -11,6 +11,7 @@
 		2508DC182C8C7F74002114A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2508DC172C8C7F74002114A1 /* ContentView.swift */; };
 		2508DC1A2C8C7F76002114A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2508DC192C8C7F76002114A1 /* Assets.xcassets */; };
 		2508DC1D2C8C7F76002114A1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2508DC1C2C8C7F76002114A1 /* Preview Assets.xcassets */; };
+		257A89262C8CB4CC001030DF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257A89252C8CB4CC001030DF /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		2508DC172C8C7F74002114A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2508DC192C8C7F76002114A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2508DC1C2C8C7F76002114A1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		257A89252C8CB4CC001030DF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				2508DC152C8C7F74002114A1 /* SnapWellApp.swift */,
 				2508DC172C8C7F74002114A1 /* ContentView.swift */,
+				257A89252C8CB4CC001030DF /* ImagePicker.swift */,
 				2508DC192C8C7F76002114A1 /* Assets.xcassets */,
 				2508DC1B2C8C7F76002114A1 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				257A89262C8CB4CC001030DF /* ImagePicker.swift in Sources */,
 				2508DC182C8C7F74002114A1 /* ContentView.swift in Sources */,
 				2508DC162C8C7F74002114A1 /* SnapWellApp.swift in Sources */,
 			);
