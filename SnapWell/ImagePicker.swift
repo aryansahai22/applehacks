@@ -2,25 +2,6 @@ import SwiftUI
 import UIKit
 import AVFoundation
 
-// Function to check camera access and handle the authorization
-func checkCameraAccess(completion: @escaping (Bool) -> Void) {
-    let status = AVCaptureDevice.authorizationStatus(for: .video)
-    switch status {
-    case .authorized:
-        completion(true)
-    case .notDetermined:
-        AVCaptureDevice.requestAccess(for: .video) { granted in
-            DispatchQueue.main.async {
-                completion(granted)
-            }
-        }
-    case .denied, .restricted:
-        completion(false)
-    @unknown default:
-        fatalError("Unknown camera authorization status")
-    }
-}
-
 struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: Image?
     @Environment(\.presentationMode) var presentationMode
@@ -28,14 +9,13 @@ struct ImagePicker: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
-        picker.sourceType = .camera
-        picker.cameraCaptureMode = .photo
-        picker.modalPresentationStyle = .fullScreen
-        picker.showsCameraControls = true
-        picker.allowsEditing = false
 
-        // Ensure the camera takes up the entire screen
-        picker.view.frame = UIScreen.main.bounds
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.sourceType = .camera
+        } else {
+            print("No camera available. Fallback to photo library.")
+            picker.sourceType = .photoLibrary
+        }
         
         return picker
     }

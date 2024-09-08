@@ -1,73 +1,28 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var journalEntry: String = ""
-    @State private var selectedImage: Image? = nil
-    @State private var isImagePickerPresented: Bool = false
-    
     var body: some View {
-        VStack {
-            Text("Today's Date: \(Date(), formatter: shortDateFormatter)")
-                .font(.headline)
-                .padding()
-            
-            if let image = selectedImage {
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 200)
-                    .padding()
-            } else {
-                Button(action: {
-                    checkCameraAccess { granted in
-                        if granted {
-                            isImagePickerPresented = true
-                        } else {
-                            print("Camera access denied. Please enable it in settings.")
-                        }
-                    }
-                }) {
-                    Text("Take a Photo!")
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
+        TabView {
+            Home()
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Home")
                 }
-                .padding()
-            }
-            
-            TextEditor(text: $journalEntry)
-                .frame(height: 200)
-                .border(Color.gray, width: 1)
-                .padding()
-            
-            Button(action: {
-                saveJournalEntry()
-            }) {
-                Text("Save Entry")
-                    .padding()
-                    .background(Color.green)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
+            Journaling()
+                .tabItem {
+                    Image(systemName: "pencil")
+                    Text("Journal")
+                }
+            History()
+                .tabItem {
+                    Image(systemName: "clock")
+                    Text("History")
+                }
         }
-        .padding()
-        .fullScreenCover(isPresented: $isImagePickerPresented) {
-            ImagePicker(image: $selectedImage)
-                .ignoresSafeArea(edges: .all)
-        }
-    }
-    
-    func saveJournalEntry() {
-        print("Journal entry saved: \(journalEntry)")
+        .ignoresSafeArea(edges: .all) // Ensure the entire screen is used without cuts
+        .navigationViewStyle(StackNavigationViewStyle()) // This prevents unintended stack behavior
     }
 }
-
-let shortDateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -12,6 +12,12 @@
 		2508DC1A2C8C7F76002114A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2508DC192C8C7F76002114A1 /* Assets.xcassets */; };
 		2508DC1D2C8C7F76002114A1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2508DC1C2C8C7F76002114A1 /* Preview Assets.xcassets */; };
 		257A89262C8CB4CC001030DF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257A89252C8CB4CC001030DF /* ImagePicker.swift */; };
+		25D2DAD32C8DD9CA00294BF9 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2DAD22C8DD9CA00294BF9 /* SignUp.swift */; };
+		25D2DAD52C8DD9DF00294BF9 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2DAD42C8DD9DF00294BF9 /* Login.swift */; };
+		25D2DAD72C8DD9F500294BF9 /* Journaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2DAD62C8DD9F500294BF9 /* Journaling.swift */; };
+		25D2DAD92C8DDA0300294BF9 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2DAD82C8DDA0300294BF9 /* History.swift */; };
+		25D2DADD2C8DDA3A00294BF9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2DADC2C8DDA3A00294BF9 /* Color.swift */; };
+		25D2DADF2C8DFD6A00294BF9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2DADE2C8DFD6A00294BF9 /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		2508DC1C2C8C7F76002114A1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		257A89252C8CB4CC001030DF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		258AA7842C8DA998005C2EE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25D2DAD22C8DD9CA00294BF9 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		25D2DAD42C8DD9DF00294BF9 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		25D2DAD62C8DD9F500294BF9 /* Journaling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journaling.swift; sourceTree = "<group>"; };
+		25D2DAD82C8DDA0300294BF9 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		25D2DADC2C8DDA3A00294BF9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		25D2DADE2C8DFD6A00294BF9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +67,17 @@
 			isa = PBXGroup;
 			children = (
 				2508DC152C8C7F74002114A1 /* SnapWellApp.swift */,
+				25D2DADE2C8DFD6A00294BF9 /* Home.swift */,
 				2508DC172C8C7F74002114A1 /* ContentView.swift */,
+				25D2DAD82C8DDA0300294BF9 /* History.swift */,
 				257A89252C8CB4CC001030DF /* ImagePicker.swift */,
+				25D2DAD22C8DD9CA00294BF9 /* SignUp.swift */,
+				25D2DAD42C8DD9DF00294BF9 /* Login.swift */,
+				25D2DAD62C8DD9F500294BF9 /* Journaling.swift */,
+				25D2DADC2C8DDA3A00294BF9 /* Color.swift */,
+				258AA7842C8DA998005C2EE7 /* Info.plist */,
 				2508DC192C8C7F76002114A1 /* Assets.xcassets */,
 				2508DC1B2C8C7F76002114A1 /* Preview Content */,
-				258AA7842C8DA998005C2EE7 /* Info.plist */,
 			);
 			path = SnapWell;
 			sourceTree = "<group>";
@@ -143,8 +161,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				257A89262C8CB4CC001030DF /* ImagePicker.swift in Sources */,
+				25D2DAD52C8DD9DF00294BF9 /* Login.swift in Sources */,
+				25D2DADF2C8DFD6A00294BF9 /* Home.swift in Sources */,
+				25D2DAD92C8DDA0300294BF9 /* History.swift in Sources */,
+				25D2DAD32C8DD9CA00294BF9 /* SignUp.swift in Sources */,
 				2508DC182C8C7F74002114A1 /* ContentView.swift in Sources */,
+				25D2DAD72C8DD9F500294BF9 /* Journaling.swift in Sources */,
 				2508DC162C8C7F74002114A1 /* SnapWellApp.swift in Sources */,
+				25D2DADD2C8DDA3A00294BF9 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
