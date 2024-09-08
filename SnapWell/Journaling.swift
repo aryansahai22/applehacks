@@ -59,7 +59,8 @@ struct Journaling: View {
                     .frame(height: 200)
                     .border(Color.white, width: 1)  // Reduced border thickness
                     .padding()
-                    .background(Color.black)
+                    .background(Color.clear)  // Match with the background color
+                    .cornerRadius(10)
                 
                 Button(action: {
                     saveJournalEntry()
@@ -125,13 +126,19 @@ struct Journaling: View {
     }
 }
 
+let shortDateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .short
+    return formatter
+}()
+
 extension View {
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
-// Ensure `JournalEntry` includes a `date` property for storing the date of the entry
+// Ensure `JournalEntry` includes a `date` and `rating` property for storing the date and rating of the entry
 struct JournalEntry: Identifiable, Codable {
     let id = UUID()
     let text: String

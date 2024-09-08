@@ -19,7 +19,8 @@ struct ContentView: View {
                     Text("History")
                 }
         }
-        .edgesIgnoringSafeArea(.all) // Ensure the entire screen is used without cuts
+        .accentColor(.blue) // Ensures that the selected tab item color is blue
+        .ignoresSafeArea(edges: .bottom) // Ensures the TabView is not obscured
         .navigationViewStyle(StackNavigationViewStyle()) // This prevents unintended stack behavior
     }
 }

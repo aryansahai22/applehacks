@@ -2,43 +2,54 @@ import SwiftUI
 
 struct Home: View {
     var body: some View {
-        ZStack {
-            Color.black.edgesIgnoringSafeArea(.all) // Ensure background extends to edges
+        VStack {
+            Spacer() // Add space at the top
 
-            VStack {
-                Spacer() // Push content down from the top
+            // Logo
+            Image("snapwellogo")  // Make sure the name matches the asset name
+                .resizable()
+                .scaledToFit()
+                .frame(width: 150, height: 150)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.clear)
+                )
 
-                Text("Welcome to SnapWell")
-                    .font(.custom("Avenir", size: 24))
-                    .foregroundColor(.white)
-                    .padding(.bottom, 50)
+            // Welcome Text
+            Text("SnapWell")
+                .font(.custom("Avenir", size: 40))
+                .foregroundColor(.white)
+                .padding(.bottom, 20)
+                .padding(.top, 20)
 
-                HStack {
-                    Button(action: {
-                        // Sign up action
-                    }) {
-                        Text("Sign Up")
-                            .padding()
-                            .background(Color.softBlue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                    .padding()
-
-                    Button(action: {
-                        // Login action
-                    }) {
-                        Text("Login")
-                            .padding()
-                            .background(Color.softBlue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                    .padding()
+            // Sign Up and Login Buttons
+            HStack(spacing: 20) {
+                Button(action: {
+                    // Sign up action
+                }) {
+                    Text("Sign Up")
+                        .padding()
+                        .frame(width: 120)  // Set width for consistent button size
+                        .background(Color.softBlue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                 }
 
-                Spacer() // Push content up from the bottom
+                Button(action: {
+                    // Login action
+                }) {
+                    Text("Login")
+                        .padding()
+                        .frame(width: 120)  // Set width for consistent button size
+                        .background(Color.softBlue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
             }
+            .padding(.bottom, 60)  // Adjust bottom padding for better spacing
+
+            Spacer() // Add space at the bottom
         }
     }
 }

@@ -22,18 +22,15 @@ struct History: View {
                                 }
                             }
                         }
-                        .padding(.bottom, 2)
 
                         if let image = entry.image {
                             image
                                 .resizable()
-                                .scaledToFit() // Maintain original proportions
-                                .padding(.bottom, 5)
+                                .aspectRatio(contentMode: .fit)
                         }
 
                         Text(entry.text)
                             .font(.custom("Avenir", size: 14))
-                            .padding(.top, 5)
                     }
                     .padding(.vertical)
                 }
@@ -82,10 +79,3 @@ struct History_Previews: PreviewProvider {
         History()
     }
 }
-
-// Date Formatter
-let shortDateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    return formatter
-}()
