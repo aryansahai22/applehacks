@@ -4,7 +4,7 @@ import SwiftUI
 struct SnapWellApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()  // This points to the ContentView defined in your other file
+            ContentView()
         }
     }
 }

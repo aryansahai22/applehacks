@@ -7,7 +7,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Today's Date: \(Date(), formatter: DateFormatter.shortDate)")
+            Text("Today's Date: \(Date(), formatter: shortDateFormatter)")
                 .font(.headline)
                 .padding()
             
@@ -19,9 +19,15 @@ struct ContentView: View {
                     .padding()
             } else {
                 Button(action: {
-                    isImagePickerPresented = true
+                    checkCameraAccess { granted in
+                        if granted {
+                            isImagePickerPresented = true
+                        } else {
+                            print("Camera access denied. Please enable it in settings.")
+                        }
+                    }
                 }) {
-                    Text("Capture Photo")
+                    Text("Take a Photo!")
                         .padding()
                         .background(Color.blue)
                         .foregroundColor(.white)
@@ -36,7 +42,6 @@ struct ContentView: View {
                 .padding()
             
             Button(action: {
-                // Save the journal entry
                 saveJournalEntry()
             }) {
                 Text("Save Entry")
@@ -47,24 +52,22 @@ struct ContentView: View {
             }
         }
         .padding()
-        .sheet(isPresented: $isImagePickerPresented) {
+        .fullScreenCover(isPresented: $isImagePickerPresented) {
             ImagePicker(image: $selectedImage)
+                .ignoresSafeArea(edges: .all)
         }
     }
     
     func saveJournalEntry() {
-        // Code to save the journal entry
         print("Journal entry saved: \(journalEntry)")
     }
 }
 
-extension DateFormatter {
-    static let shortDate: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        return formatter
-    }()
-}
+let shortDateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .short
+    return formatter
+}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
