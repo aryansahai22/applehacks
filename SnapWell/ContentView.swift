@@ -19,7 +19,7 @@ struct ContentView: View {
                     Text("History")
                 }
         }
-        .ignoresSafeArea(edges: .all) // Ensure the entire screen is used without cuts
+        .edgesIgnoringSafeArea(.all) // Ensure the entire screen is used without cuts
         .navigationViewStyle(StackNavigationViewStyle()) // This prevents unintended stack behavior
     }
 }

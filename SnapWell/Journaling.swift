@@ -6,6 +6,7 @@ struct Journaling: View {
     @State private var selectedImage: Image? = nil
     @State private var isImagePickerPresented: Bool = false
     @State private var journalEntries: [JournalEntry] = []
+    @State private var rating: Int = 0  // Track the star rating
     
     var body: some View {
         VStack {
@@ -42,6 +43,18 @@ struct Journaling: View {
                     .padding()
                 }
                 
+                // Star Rating
+                HStack {
+                    ForEach(1..<6) { index in
+                        Image(systemName: "star.fill")
+                            .foregroundColor(index <= self.rating ? .yellow : .gray)
+                            .onTapGesture {
+                                self.rating = index
+                            }
+                    }
+                }
+                .padding()
+                
                 TextEditor(text: $journalEntry)
                     .frame(height: 200)
                     .border(Color.white, width: 1)  // Reduced border thickness
@@ -52,6 +65,7 @@ struct Journaling: View {
                     saveJournalEntry()
                     journalEntry = "" // Clear the text after saving
                     selectedImage = nil // Clear the image after saving
+                    rating = 0 // Clear the rating after saving
                 }) {
                     Text("Save Entry")
                         .padding()
@@ -74,7 +88,7 @@ struct Journaling: View {
     }
     
     func saveJournalEntry() {
-        let newEntry = JournalEntry(text: journalEntry, image: selectedImage)
+        let newEntry = JournalEntry(text: journalEntry, image: selectedImage, rating: rating)
         journalEntries.append(newEntry)
         saveEntriesToUserDefaults()
     }
@@ -111,32 +125,31 @@ struct Journaling: View {
     }
 }
 
-let shortDateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    return formatter
-}()
-
 extension View {
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
+// Ensure `JournalEntry` includes a `date` property for storing the date of the entry
 struct JournalEntry: Identifiable, Codable {
     let id = UUID()
     let text: String
     let imageData: Data?
-    
+    let date: Date
+    let rating: Int  // Add this property for storing the star rating
+
     var image: Image? {
         if let data = imageData, let uiImage = UIImage(data: data) {
             return Image(uiImage: uiImage)
         }
         return nil
     }
-    
-    init(text: String, image: Image?) {
+
+    init(text: String, image: Image?, rating: Int, date: Date = Date()) {
         self.text = text
+        self.date = date
+        self.rating = rating  // Initialize with the given rating
         if let image = image, let uiImage = image.asUIImage() {
             self.imageData = uiImage.pngData()
         } else {

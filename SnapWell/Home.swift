@@ -3,11 +3,12 @@ import SwiftUI
 struct Home: View {
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea(.all) // Ensure background extends to edges
-            VStack {
-                Spacer() // Add space to push content to center
+            Color.black.edgesIgnoringSafeArea(.all) // Ensure background extends to edges
 
-                Text("Welcome to SnapWell!")
+            VStack {
+                Spacer() // Push content down from the top
+
+                Text("Welcome to SnapWell")
                     .font(.custom("Avenir", size: 24))
                     .foregroundColor(.white)
                     .padding(.bottom, 50)
@@ -36,7 +37,7 @@ struct Home: View {
                     .padding()
                 }
 
-                Spacer() // Add space to keep content centered
+                Spacer() // Push content up from the bottom
             }
         }
     }
